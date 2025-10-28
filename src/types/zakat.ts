@@ -1,10 +1,10 @@
-export type ZakatType = 'fitrah' | 'maal' | null;
+export type ZakatType = "fitrah" | "mal" | null;
 
-export type IrigasiType = 'berbayar' | 'alami';
+export type IrigasiType = "berbayar" | "alami";
 
-export type TemuanType = 'rikaz' | 'tambang';
+export type TemuanType = "rikaz" | "tambang";
 
-export interface MaalData {
+export interface MalData {
   emas?: {
     gram: number;
     haul: number;
@@ -36,4 +36,12 @@ export interface MustahikSelection {
   [key: string]: boolean;
 }
 
-export type MustahikType = 'fakir' | 'miskin' | 'amil' | 'muallaf' | 'riqab' | 'gharim' | 'fi_sabilillah' | 'ibnu_sabil';
+export type MustahikType =
+  | "fakir"
+  | "miskin"
+  | "amil"
+  | "muallaf"
+  | "riqab"
+  | "gharim"
+  | "fi_sabilillah"
+  | "ibnu_sabil";

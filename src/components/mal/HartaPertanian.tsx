@@ -1,5 +1,5 @@
-import React from 'react';
-import { IrigasiType } from '../../types/zakat';
+import React from "react";
+import { IrigasiType } from "../../types/zakat";
 
 interface HartaPertanianProps {
   isChecked: boolean;
@@ -16,29 +16,32 @@ const HartaPertanian: React.FC<HartaPertanianProps> = ({
   kg,
   irigasi,
   onKgChange,
-  onIrigasiChange
+  onIrigasiChange,
 }) => {
   return (
-    <div className="border border-gray-300 rounded-lg p-4">
+    <div className="bg-slate-50 rounded p-4">
       <label className="flex items-center space-x-3 cursor-pointer">
         <input
           type="checkbox"
           checked={isChecked}
           onChange={(e) => onCheckChange(e.target.checked)}
-          className="h-5 w-5 text-blue-600"
+          className="h-5 w-5 text-slate-600"
         />
         <span className="text-lg font-bold">Pertanian</span>
       </label>
       {isChecked && (
         <div className="mt-4 space-y-3 pl-8">
           <div>
-            <label className="block text-sm font-medium">Hasil Panen (kg gabah/setara): <span className="text-xs text-gray-500">(Nisab: 653 kg)</span></label>
+            <label className="block text-sm font-medium">
+              Hasil Panen (kg gabah/setara):{" "}
+              <span className="text-xs text-gray-500">(Nisab: 653 kg)</span>
+            </label>
             <input
               type="number"
               placeholder="653"
-              value={kg || ''}
+              value={kg || 0}
               onChange={(e) => onKgChange(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2  rounded-md"
             />
           </div>
           <div className="space-y-1">
@@ -48,8 +51,8 @@ const HartaPertanian: React.FC<HartaPertanianProps> = ({
                 type="radio"
                 name="irigasi"
                 value="berbayar"
-                checked={irigasi === 'berbayar'}
-                onChange={() => onIrigasiChange('berbayar')}
+                checked={irigasi === "berbayar"}
+                onChange={() => onIrigasiChange("berbayar")}
                 className="mr-2"
               />
               Irigasi Berbayar (Zakat 5%)
@@ -59,8 +62,8 @@ const HartaPertanian: React.FC<HartaPertanianProps> = ({
                 type="radio"
                 name="irigasi"
                 value="alami"
-                checked={irigasi === 'alami'}
-                onChange={() => onIrigasiChange('alami')}
+                checked={irigasi === "alami"}
+                onChange={() => onIrigasiChange("alami")}
                 className="mr-2"
               />
               Irigasi Alami/Tadah Hujan (Zakat 10%)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface HartaEmasProps {
   isChecked: boolean;
@@ -15,39 +15,44 @@ const HartaEmas: React.FC<HartaEmasProps> = ({
   gram,
   haul,
   onGramChange,
-  onHaulChange
+  onHaulChange,
 }) => {
   return (
-    <div className="border border-gray-300 rounded-lg p-4">
+    <div className=" bg-slate-50 rounded p-4">
       <label className="flex items-center space-x-3 cursor-pointer">
         <input
           type="checkbox"
           checked={isChecked}
           onChange={(e) => onCheckChange(e.target.checked)}
-          className="h-5 w-5 text-blue-600"
+          className="h-5 w-5 text-slate-600"
         />
-        <span className="text-lg font-bold">Emas</span>
+        <p className="text-lg font-bold">Emas</p>
       </label>
       {isChecked && (
         <div className="mt-4 space-y-3 pl-8">
           <div>
-            <label className="block text-sm font-medium">Jumlah Emas (gram):</label>
+            <label className="block text-sm font-medium">
+              Jumlah Emas (gram):
+              <span className="text-xs text-gray-500">(Nisab: 85 gram)</span>
+            </label>
             <input
               type="number"
-              placeholder="85"
-              value={gram || ''}
+              value={gram || 0}
               onChange={(e) => onGramChange(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 rounded-md"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Lama Kepemilikan (tahun):</label>
+            <label className="block text-sm font-medium">
+              Lama Kepemilikan (tahun):
+              <span className="text-xs text-gray-500">(Haul: 1 tahun)</span>
+            </label>
             <input
               type="number"
               placeholder="1"
-              value={haul || ''}
+              value={haul || 0}
               onChange={(e) => onHaulChange(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2  rounded-md"
             />
           </div>
         </div>
